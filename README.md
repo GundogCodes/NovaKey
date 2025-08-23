@@ -192,6 +192,9 @@ Updates are delivered automatically through the Mac App Store.
 ⭐⭐⭐⭐⭐ **Leave a review on the Mac App Store to support development!**
 
 ---
+## Privacy Policy
+
+https://gundogcodes.github.io/novakey-privacy-policy/
 
 <div align="center">
   <p><strong>🚀 <a href="https://apps.apple.com/ca/app/hyperkey/id6751394828?mt=12">Download NovaKey from the Mac App Store</a></strong></p>
