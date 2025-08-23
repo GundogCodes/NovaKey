@@ -189,14 +189,6 @@ NovaKey is actively maintained with regular updates including:
 
 Updates are delivered automatically through the Mac App Store.
 
-## 🏆 Reviews & Recognition
-
-*"NovaKey has revolutionized how I work on my Mac. Lightning-fast app switching!"*
-
-*"Clean interface, reliable performance, and great statistics tracking."*
-
-*"Finally, a hotkey manager that just works and looks beautiful doing it."*
-
 ⭐⭐⭐⭐⭐ **Leave a review on the Mac App Store to support development!**
 
 ---
