@@ -1,4 +1,4 @@
-# HyperKey
+<img width="1440" height="900" alt="mainpage" src="https://github.com/user-attachments/assets/d256be92-e1a7-4cea-b85c-f9f3764ca5f3" /># NovaKey
 
 <div align="center">
   <img src="https://img.shields.io/badge/Platform-macOS-blue.svg" alt="Platform: macOS">
@@ -31,7 +31,7 @@ A sleek, modern macOS application launcher that lets you instantly open any app 
 
 ### 🎨 **Beautiful Interface**
 - Native macOS dark mode design
-- Futuristic neon-glow HyperKey branding
+- Futuristic neon-glow NovaKey branding
 - Smooth animations and hover effects
 - Real app icons displayed for each shortcut
 
@@ -44,18 +44,19 @@ A sleek, modern macOS application launcher that lets you instantly open any app 
 ## 📱 Screenshots
 
 <div align="center">
-  <img width="540" height="310" alt="HyperKey Main Interface" src="https://github.com/user-attachments/assets/905aee00-ea27-47c5-b7c6-e4ea31b71299" />
-  <img width="540" height="310" alt="HyperKey Settings" src="https://github.com/user-attachments/assets/e5753785-bbc8-4527-a629-3636e1c29330" />
+<img width="1440" height="900" alt="mainpage" src="https://github.com/user-attachments/assets/b0adc800-7a90-44f7-9448-104ee87b4df6" />
+<img width="1440" height="900" alt="addpage" src="https://github.com/user-attachments/assets/d7cc5e12-cfd5-44b9-bbdc-6fd95210d4b4" />
+
 </div>
 
 <div align="center">
-  <img width="540" height="310" alt="HyperKey Usage Statistics" src="https://github.com/user-attachments/assets/ba013908-93b3-4828-b665-51936d20c7be" />
+<img width="1440" height="900" alt="editpage" src="https://github.com/user-attachments/assets/615d4e70-405f-44a1-86f2-30260d71fa8c" />
 </div>
 
 ## 🛒 Download
 
 ### Mac App Store
-[**Download HyperKey from the Mac App Store**](https://apps.apple.com/ca/app/hyperkey/id6751394828?mt=12)
+[**Download NovaKey from the Mac App Store**](https://apps.apple.com/ca/app/hyperkey/id6751394828?mt=12)
 
 ### System Requirements
 - macOS 12.0 (Monterey) or later
@@ -63,10 +64,10 @@ A sleek, modern macOS application launcher that lets you instantly open any app 
 
 ## 🚀 Quick Start
 
-1. **Download from Mac App Store** - Search for "HyperKey" or use the link above
+1. **Download from Mac App Store** - Search for "NovaKey" or use the link above
 2. **Grant Permissions** - Allow accessibility access when prompted
-3. **Launch HyperKey** - The app runs in the background with a menu bar icon
-4. **Open Preferences** - Click the menu bar icon and select "HyperKey Preferences"
+3. **Launch NovaKey** - The app runs in the background with a menu bar icon
+4. **Open Preferences** - Click the menu bar icon and select "NovaKey Preferences"
 5. **Add Your First Hotkey**:
    - Click the `+` button
    - Enter a name (e.g., "Launch Safari")
@@ -109,16 +110,16 @@ If apps are resizing existing windows when launched, disable these macOS feature
 
 ### Launch at Login
 
-Enable "Launch at Login" in HyperKey preferences to have your shortcuts ready immediately after boot.
+Enable "Launch at Login" in NovaKey preferences to have your shortcuts ready immediately after boot.
 
 ### Accessibility Permissions
 
-HyperKey requires accessibility permissions to register global hotkeys:
+NovaKey requires accessibility permissions to register global hotkeys:
 
 1. **System Settings → Privacy & Security → Accessibility**
-2. Click the `+` button and add HyperKey
+2. Click the `+` button and add NovaKey
 3. Toggle the switch to enable permissions
-4. Restart HyperKey if needed
+4. Restart NovaKey if needed
 
 ## 📋 Version History
 
@@ -132,17 +133,17 @@ HyperKey requires accessibility permissions to register global hotkeys:
 
 ## ❓ Frequently Asked Questions
 
-### **Q: Why does HyperKey need accessibility permissions?**
-A: HyperKey needs accessibility permissions to register system-wide keyboard shortcuts. This is a macOS requirement for any app that listens for global hotkeys.
+### **Q: Why does NovaKey need accessibility permissions?**
+A: NovaKey needs accessibility permissions to register system-wide keyboard shortcuts. This is a macOS requirement for any app that listens for global hotkeys.
 
 ### **Q: Can I use the same shortcut for multiple apps?**
-A: No, each keyboard shortcut must be unique. HyperKey will warn you if you try to create a duplicate shortcut.
+A: No, each keyboard shortcut must be unique. NovaKey will warn you if you try to create a duplicate shortcut.
 
-### **Q: Does HyperKey work with all apps?**
-A: Yes! HyperKey can launch any application installed on your Mac, including apps from the App Store, third-party apps, and system utilities.
+### **Q: Does NovaKey work with all apps?**
+A: Yes! NovaKey can launch any application installed on your Mac, including apps from the App Store, third-party apps, and system utilities.
 
 ### **Q: Will my shortcuts work after restarting my Mac?**
-A: Yes, if you enable "Launch at Login" in HyperKey preferences, all your shortcuts will be available immediately after startup.
+A: Yes, if you enable "Launch at Login" in NovaKey preferences, all your shortcuts will be available immediately after startup.
 
 ### **Q: Can I backup my hotkey configurations?**
 A: Your hotkey configurations are automatically saved and will persist across app updates. For manual backup, you can export your settings (feature coming in future update).
@@ -172,13 +173,13 @@ A: Your hotkey configurations are automatically saved and will persist across ap
 ### 🐛 Reporting Issues
 When reporting issues, please include:
 - macOS version
-- HyperKey version (from App Store)
+- NovaKey version (from App Store)
 - Steps to reproduce the issue
 - Screenshots if applicable
 
 ## 🔄 Updates
 
-HyperKey is actively maintained with regular updates including:
+NovaKey is actively maintained with regular updates including:
 - New features based on user feedback
 - Performance improvements
 - macOS compatibility updates
@@ -188,7 +189,7 @@ Updates are delivered automatically through the Mac App Store.
 
 ## 🏆 Reviews & Recognition
 
-*"HyperKey has revolutionized how I work on my Mac. Lightning-fast app switching!"*
+*"NovaKey has revolutionized how I work on my Mac. Lightning-fast app switching!"*
 
 *"Clean interface, reliable performance, and great statistics tracking."*
 
@@ -199,6 +200,6 @@ Updates are delivered automatically through the Mac App Store.
 ---
 
 <div align="center">
-  <p><strong>🚀 <a href="https://apps.apple.com/ca/app/hyperkey/id6751394828?mt=12">Download HyperKey from the Mac App Store</a></strong></p>
+  <p><strong>🚀 <a href="https://apps.apple.com/ca/app/hyperkey/id6751394828?mt=12">Download NovaKey from the Mac App Store</a></strong></p>
   <p>Made with ❤️ for the macOS community</p>
 </div>
