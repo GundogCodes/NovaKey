@@ -155,7 +155,7 @@ A: Your hotkey configurations are automatically saved and will persist across ap
 - No network connections or data collection
 - No encryption algorithms implemented
 - Uses standard macOS data protection
-[https://gundogcodes.github.io/hyperkey-privacy-policy/]
+- https://gundogcodes.github.io/hyperkey-privacy-policy/
 
 ## 💬 Support & Feedback
 
