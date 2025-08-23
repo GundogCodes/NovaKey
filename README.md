@@ -11,9 +11,9 @@ A sleek, modern macOS application launcher that lets you instantly open any app 
 
 ## 📱 Screenshots
 
-<img width="540" height="210" alt="800x400bb" src="https://github.com/user-attachments/assets/905aee00-ea27-47c5-b7c6-e4ea31b71299" />
-<img width="540" height="210" alt="800x400bb-1" src="https://github.com/user-attachments/assets/e5753785-bbc8-4527-a629-3636e1c29330" />
-<img width="540" height="210" alt="800x400bb-2" src="https://github.com/user-attachments/assets/ba013908-93b3-4828-b665-51936d20c7be" />
+<img width="540" height="310" alt="800x400bb" src="https://github.com/user-attachments/assets/905aee00-ea27-47c5-b7c6-e4ea31b71299" />
+<img width="540" height="310" alt="800x400bb-1" src="https://github.com/user-attachments/assets/e5753785-bbc8-4527-a629-3636e1c29330" />
+<img width="540" height="310" alt="800x400bb-2" src="https://github.com/user-attachments/assets/ba013908-93b3-4828-b665-51936d20c7be" />
 
 **Available now on the Mac App Store!**
 
