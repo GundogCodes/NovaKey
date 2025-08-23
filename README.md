@@ -1,4 +1,4 @@
-<img width="1440" height="900" alt="mainpage" src="https://github.com/user-attachments/assets/d256be92-e1a7-4cea-b85c-f9f3764ca5f3" /># NovaKey
+# NovaKey
 
 <div align="center">
   <img src="https://img.shields.io/badge/Platform-macOS-blue.svg" alt="Platform: macOS">
@@ -44,13 +44,15 @@ A sleek, modern macOS application launcher that lets you instantly open any app 
 ## 📱 Screenshots
 
 <div align="center">
-<img width="1440" height="900" alt="mainpage" src="https://github.com/user-attachments/assets/b0adc800-7a90-44f7-9448-104ee87b4df6" />
-<img width="1440" height="900" alt="addpage" src="https://github.com/user-attachments/assets/d7cc5e12-cfd5-44b9-bbdc-6fd95210d4b4" />
+<img width="540" height="310" alt="mainpage" src="https://github.com/user-attachments/assets/dc277c26-033a-4c60-9330-11e95b6b1e1e" />
+<img width="540" height="310" alt="addpage" src="https://github.com/user-attachments/assets/8ae6d265-495e-40b3-8928-7cb5ec924d84" />
 
 </div>
 
 <div align="center">
-<img width="1440" height="900" alt="editpage" src="https://github.com/user-attachments/assets/615d4e70-405f-44a1-86f2-30260d71fa8c" />
+<img width="540" height="310" alt="editpage" src="https://github.com/user-attachments/assets/4ea8e295-23cc-47bb-9b65-065a7ed62ff1" />
+
+
 </div>
 
 ## 🛒 Download
