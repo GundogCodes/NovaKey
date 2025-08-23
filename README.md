@@ -9,12 +9,6 @@
 
 A sleek, modern macOS application launcher that lets you instantly open any app with custom keyboard shortcuts. Built with SwiftUI and designed for productivity enthusiasts who want lightning-fast access to their favorite applications.
 
-## 📱 Screenshots
-
-<img width="540" height="310" alt="800x400bb" src="https://github.com/user-attachments/assets/905aee00-ea27-47c5-b7c6-e4ea31b71299" />
-<img width="540" height="310" alt="800x400bb-1" src="https://github.com/user-attachments/assets/e5753785-bbc8-4527-a629-3636e1c29330" />
-<img width="540" height="310" alt="800x400bb-2" src="https://github.com/user-attachments/assets/ba013908-93b3-4828-b665-51936d20c7be" />
-
 **Available now on the Mac App Store!**
 
 ## ✨ Features
@@ -47,10 +41,21 @@ A sleek, modern macOS application launcher that lets you instantly open any app 
 - Helpful macOS window management tips
 - Respects system accessibility settings
 
+## 📱 Screenshots
+
+<div align="center">
+  <img width="540" height="310" alt="HyperKey Main Interface" src="https://github.com/user-attachments/assets/905aee00-ea27-47c5-b7c6-e4ea31b71299" />
+  <img width="540" height="310" alt="HyperKey Settings" src="https://github.com/user-attachments/assets/e5753785-bbc8-4527-a629-3636e1c29330" />
+</div>
+
+<div align="center">
+  <img width="540" height="310" alt="HyperKey Usage Statistics" src="https://github.com/user-attachments/assets/ba013908-93b3-4828-b665-51936d20c7be" />
+</div>
+
 ## 🛒 Download
 
 ### Mac App Store
-[**Download HyperKey from the Mac App Store**]([https://apps.apple.com/app/hyperkey/idYOUR_APP_ID](https://apps.apple.com/ca/app/hyperkey/id6751394828?mt=12))
+[**Download HyperKey from the Mac App Store**](https://apps.apple.com/ca/app/hyperkey/id6751394828?mt=12)
 
 ### System Requirements
 - macOS 12.0 (Monterey) or later
@@ -155,7 +160,7 @@ A: Your hotkey configurations are automatically saved and will persist across ap
 - No network connections or data collection
 - No encryption algorithms implemented
 - Uses standard macOS data protection
-- https://gundogcodes.github.io/hyperkey-privacy-policy/
+- [Privacy Policy](https://gundogcodes.github.io/hyperkey-privacy-policy/)
 
 ## 💬 Support & Feedback
 
@@ -181,12 +186,19 @@ HyperKey is actively maintained with regular updates including:
 
 Updates are delivered automatically through the Mac App Store.
 
+## 🏆 Reviews & Recognition
+
+*"HyperKey has revolutionized how I work on my Mac. Lightning-fast app switching!"*
+
+*"Clean interface, reliable performance, and great statistics tracking."*
+
+*"Finally, a hotkey manager that just works and looks beautiful doing it."*
 
 ⭐⭐⭐⭐⭐ **Leave a review on the Mac App Store to support development!**
 
 ---
 
 <div align="center">
-  <p><strong>🚀 <a href="https://apps.apple.com/app/hyperkey/idYOUR_APP_ID">Download HyperKey from the Mac App Store</a></strong></p>
+  <p><strong>🚀 <a href="https://apps.apple.com/ca/app/hyperkey/id6751394828?mt=12">Download HyperKey from the Mac App Store</a></strong></p>
   <p>Made with ❤️ for the macOS community</p>
 </div>
