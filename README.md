@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/Framework-SwiftUI-green.svg" alt="Framework: SwiftUI">
 </div>
 
-A sleek, modern macOS application launcher that lets you instantly open any app with custom keyboard shortcuts. Built with SwiftUI and designed for productivity enthusiasts who want lightning-fast access to their favorite applications.
+A sleek, modern macOS application launcher that lets you instantly open apps with custom keyboard shortcuts. Built with SwiftUI and designed for productivity enthusiasts who want lightning-fast access to their favorite applications.
 
 **Available now on the Mac App Store!**
 
@@ -15,6 +15,7 @@ A sleek, modern macOS application launcher that lets you instantly open any app 
 
 ### 🚀 **Lightning Fast App Launching**
 - Set custom keyboard shortcuts for any application
+- Open multiple apps with one shortcut
 - Instant app launching without dock or Spotlight delays
 - Support for complex modifier key combinations (⌃⌥⇧⌘)
 
