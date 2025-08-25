@@ -13,12 +13,18 @@ A sleek, modern macOS application launcher that lets you instantly open apps wit
 
 ## ✨ Features
 
-### 🚀 **Lightning Fast App Launching**
-- Set custom keyboard shortcuts for any application
-- Open multiple apps with one shortcut
-- Instant app launching without dock or Spotlight delays
-- Support for complex modifier key combinations (⌃⌥⇧⌘)
+🚀 Lightning Fast App Launching
+-	Set custom keyboard shortcuts for any application
+-	Open multiple apps at once with a single shortcut
+-	Instant app launching without dock or Spotlight delays
+-	Support for complex modifier key combinations (⌃⌥⇧⌘)
 
+🔄 Import & Export Shortcuts
+- Export your hotkey configurations to a file
+- Import your settings on another Mac for instant setup
+- Share your custom workflows with colleagues or friends
+- Backup your shortcuts to prevent accidental loss
+ 
 ### 🔍 **Smart Search & Organization**
 - Real-time search and filtering of configured hotkeys
 - Search by app name, shortcut combination, or hotkey name
@@ -29,6 +35,7 @@ A sleek, modern macOS application launcher that lets you instantly open apps wit
 - View detailed usage statistics and patterns
 - Identify your most and least used shortcuts
 - See when you last used each hotkey
+
 
 ### 🎨 **Beautiful Interface**
 - Native macOS dark mode design
