@@ -80,7 +80,7 @@ Behavior highlights:
 
 ### 4. Single-Display Workspaces
 
-When only one display is connected, NovaKey can enable workspace mode.
+Workspaces are a single-display-only feature. When exactly one display is connected (typical laptop usage), NovaKey can enable workspace mode.
 
 Workspace behavior:
 
@@ -95,16 +95,16 @@ Workspace behavior:
 
 ### 5. Multi-Display Mode
 
-When NovaKey detects more than one connected display, it disables workspaces automatically and switches to multi-display tiling rules.
+The moment a second display is connected, NovaKey switches out of workspace mode and into multi-display tiling mode. There are no workspaces while multiple displays are active — every window on every display is tiled immediately, with no workspace switching required.
 
 Multi-display behavior:
 
-- Each display is tiled independently.
-- Moving a window from one display to another triggers a retile on both displays.
-- Dragging windows across displays is supported.
-- Caps-based left/right display movement is supported for the focused window.
-- If a second monitor is connected, workspace mode is turned off automatically.
-- If the setup returns to a single display, workspace mode can be restored automatically.
+- Each display is tiled independently. Up to 4 windows tile cleanly per display; extras overflow per the tiling rules.
+- Windows tile immediately as they are opened or moved. There is no workspace layer on top of the tiling.
+- `Caps + Left` and `Caps + Right` move the focused window to the adjacent display. The window is retiled on the destination display and the layout on the source display is compacted automatically.
+- Dragging a window from one display to another also triggers a retile on both displays.
+- Workspace mode pauses automatically while multiple displays are connected.
+- When the setup returns to a single display (e.g., an external monitor is unplugged), workspace mode can be restored automatically.
 
 ## Product Principles
 

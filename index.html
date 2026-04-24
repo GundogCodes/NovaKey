@@ -704,6 +704,7 @@ footer {
     <li><a href="#hotkeys">Hot Keys</a></li>
     <li><a href="#windows">Window Manager</a></li>
     <li><a href="#workspaces">Workspaces</a></li>
+    <li><a href="#displays">Displays</a></li>
     <li><a href="#sync">Sync</a></li>
   </ul>
   <a href="https://gunwithish.gumroad.com/l/novakeypro" class="nav-cta">Buy — $9.99</a>
@@ -1025,6 +1026,80 @@ footer {
           </div>
           <div class="ws-label"><span class="ws-num">0</span><span class="ws-key">⌘0</span></div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MULTI-DISPLAY -->
+<section id="displays">
+  <div class="section-inner">
+    <div class="section-label reveal">Multi-Display</div>
+    <h2 class="section-title reveal" style="max-width:900px;">Two monitors.<br><span class="accent">Twice the tiling.</span></h2>
+    <p class="section-sub reveal">Plug in a second display and NovaKey switches modes. No workspaces — every monitor tiles independently, and windows jump between them with a single keystroke.</p>
+
+    <div class="reveal" style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 32px; align-items: center; margin-top: 56px; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <!-- Left monitor -->
+      <div>
+        <div class="wm-screen" style="gap:3px;">
+          <div class="wm-bar"></div>
+          <div class="wm-pane" style="flex:1; margin-top:10px;"></div>
+          <div class="wm-pane" style="flex:1; margin-top:10px;"></div>
+        </div>
+        <div class="wm-card-label" style="text-align:center;"><span>Display 1</span>Editor · Terminal</div>
+      </div>
+
+      <!-- Arrow / shortcut in the middle -->
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+        <div style="display: flex; gap: 6px; align-items: center;">
+          <span class="keycap" style="font-size:12px; padding:6px 10px;">Caps</span>
+          <span class="keycap-plus" style="font-size:14px;">+</span>
+          <span class="keycap" style="font-size:12px; padding:6px 10px;">→</span>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 22px; color: var(--blue-bright);">⇄</div>
+        <div style="display: flex; gap: 6px; align-items: center;">
+          <span class="keycap" style="font-size:12px; padding:6px 10px;">Caps</span>
+          <span class="keycap-plus" style="font-size:14px;">+</span>
+          <span class="keycap" style="font-size:12px; padding:6px 10px;">←</span>
+        </div>
+      </div>
+
+      <!-- Right monitor -->
+      <div>
+        <div class="wm-screen" style="gap:3px;">
+          <div class="wm-bar"></div>
+          <div style="flex:1; margin-top:10px; display:flex; flex-direction:column; gap:3px;">
+            <div class="wm-pane" style="flex:1;"></div>
+            <div class="wm-pane" style="flex:1;"></div>
+          </div>
+          <div class="wm-pane" style="flex:1; margin-top:10px;"></div>
+        </div>
+        <div class="wm-card-label" style="text-align:center;"><span>Display 2</span>Browser · Docs · Notes</div>
+      </div>
+    </div>
+
+    <div class="reveal" style="display: flex; flex-direction: column; gap: 12px; max-width: 720px; margin: 56px auto 0;">
+      <div style="padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+        <span style="font-family: var(--font-mono); font-size: 14px; color: var(--dim);">Move focused window to adjacent display</span>
+        <span class="keycap" style="font-size:13px; white-space: nowrap;">Caps ← / →</span>
+      </div>
+      <div style="padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+        <span style="font-family: var(--font-mono); font-size: 14px; color: var(--dim);">Each display tiles independently</span>
+        <span style="font-size: 13px; color: var(--blue-bright); font-family: var(--font-mono);">✓</span>
+      </div>
+      <div style="padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+        <span style="font-family: var(--font-mono); font-size: 14px; color: var(--dim);">Windows tile immediately — no workspace switching</span>
+        <span style="font-size: 13px; color: var(--blue-bright); font-family: var(--font-mono);">✓</span>
+      </div>
+      <div style="padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+        <span style="font-family: var(--font-mono); font-size: 14px; color: var(--dim);">Workspace mode pauses while multi-display is active</span>
+        <span style="font-size: 13px; color: var(--blue-bright); font-family: var(--font-mono);">✓</span>
+      </div>
+      <div style="padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+        <span style="font-family: var(--font-mono); font-size: 14px; color: var(--dim);">Unplug the second monitor → workspaces return</span>
+        <span style="font-size: 13px; color: var(--blue-bright); font-family: var(--font-mono);">✓</span>
       </div>
     </div>
   </div>
