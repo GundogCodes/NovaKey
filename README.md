@@ -1,210 +1,184 @@
 # NovaKey
 
-<div align="center">
-  <img src="https://img.shields.io/badge/Platform-macOS-blue.svg" alt="Platform: macOS">
-  <img src="https://img.shields.io/badge/Available-Mac_App_Store-black.svg" alt="Available on Mac App Store">
-  <img src="https://img.shields.io/badge/Language-Swift-orange.svg" alt="Language: Swift">
-  <img src="https://img.shields.io/badge/Framework-SwiftUI-green.svg" alt="Framework: SwiftUI">
-</div>
+NovaKey is a keyboard-first macOS productivity app that combines a hotkey launcher with a tiling window manager.
 
-A sleek, modern macOS application launcher that lets you instantly open apps with custom keyboard shortcuts. Built with SwiftUI and designed for productivity enthusiasts who want lightning-fast access to their favorite applications.
+The goal is simple: make a Mac feel faster, more intentional, and more controllable from the keyboard without losing native macOS behavior. NovaKey lets you launch apps and websites instantly, rearrange windows with a single key combo, move through virtual workspaces on a laptop, and keep larger multi-display setups neatly tiled.
 
-**Available now on the Mac App Store!**
+NovaKey ships in two editions:
 
-## ✨ Features
+| Edition | Where to get it | Focus |
+| --- | --- | --- |
+| **NovaKey** | [Mac App Store](https://apps.apple.com/ca/app/novakey/id6751394828?mt=12) | Hotkey launcher — sandboxed, App-Store-safe subset |
+| **NovaKey Pro** | [Gumroad — $9.99](https://gunwithish.gumroad.com/l/novakeypro) | Full experience: tiling window manager, virtual workspaces, multi-display mode |
 
-🚀 Lightning Fast App Launching
--	Set custom keyboard shortcuts for any application
--	Open multiple apps at once with a single shortcut
--	Instant app launching without dock or Spotlight delays
--	Support for complex modifier key combinations (⌃⌥⇧⌘)
+Landing page: https://gundogcodes.github.io/NovaKey/
 
-🔄 Import & Export Shortcuts
-- Export your hotkey configurations to a file
-- Import your settings on another Mac for instant setup
-- Share your custom workflows with colleagues or friends
-- Backup your shortcuts to prevent accidental loss
- 
-### 🔍 **Smart Search & Organization**
-- Real-time search and filtering of configured hotkeys
-- Search by app name, shortcut combination, or hotkey name
-- Clean, organized interface showing all your shortcuts at a glance
+This repository tracks the full feature set that powers both editions.
 
-### 📊 **Usage Analytics**
-- Track how often you use each hotkey
-- View detailed usage statistics and patterns
-- Identify your most and least used shortcuts
-- See when you last used each hotkey
+## What NovaKey Does
 
+- Launch apps and websites from custom hotkeys.
+- Provide a one-handed Caps Lock leader layer for core actions.
+- Automatically tile windows across one or more displays.
+- Support manual retile and layout cycling when the user wants to intervene.
+- Offer single-display virtual workspaces with app-to-workspace assignment and overflow rules.
+- Detect monitor changes and switch between workspace mode and multi-display tiling mode automatically.
+- Give users a native Preferences window for setup, shortcuts, diagnostics, import/export, and recovery tools.
 
-### 🎨 **Beautiful Interface**
-- Native macOS dark mode design
-- Futuristic neon-glow NovaKey branding
-- Smooth animations and hover effects
-- Real app icons displayed for each shortcut
+## Core Experience
 
-### ⚙️ **System Integration**
-- Launch at login support
-- Menu bar integration for easy access
-- Helpful macOS window management tips
-- Respects system accessibility settings
+### 1. Hotkey Launcher
 
-## 📱 Screenshots
+NovaKey can launch one or more applications, open websites, and focus running apps from configurable keyboard shortcuts. This is the fast-entry side of the product and works independently from the tiling system.
 
-<div align="center">
-<img width="540" height="310" alt="mainpage" src="https://github.com/user-attachments/assets/dc277c26-033a-4c60-9330-11e95b6b1e1e" />
-<img width="540" height="310" alt="addpage" src="https://github.com/user-attachments/assets/8ae6d265-495e-40b3-8928-7cb5ec924d84" />
+### 2. Caps Lock Leader System
 
-</div>
+NovaKey turns Caps Lock into a dual-role key:
 
-<div align="center">
-<img width="540" height="310" alt="editpage" src="https://github.com/user-attachments/assets/4ea8e295-23cc-47bb-9b65-065a7ed62ff1" />
+- Tap `Caps Lock` normally to toggle caps lock.
+- Hold `Caps Lock` as a leader key for window-management actions.
 
+Default leader actions:
 
-</div>
+- `Caps + Q` cycles tiled window positions.
+- `Caps + A` manually tiles the current display or workspace.
+- `Caps + Space` opens or closes Preferences.
+- `Caps + 1..0` switches workspaces on single-display setups.
+- `Caps + Shift + 1..0` moves the active window to a workspace.
+- `Caps + Left` / `Caps + Right` switches adjacent workspaces on a single display.
+- `Caps + Left` / `Caps + Right` moves the focused window between displays when multiple monitors are connected.
+- `Caps + letter` can be assigned to user-defined hotkeys.
 
-## 🛒 Download
+Legacy shortcuts are still supported for compatibility:
 
-### Mac App Store
-[**Download NovaKey from the Mac App Store**](https://apps.apple.com/ca/app/hyperkey/id6751394828?mt=12)
+- `Control + Option + P` cycles windows.
+- `Control + Option + L` tiles windows.
+- `Control + Option + M` opens Preferences.
 
-### System Requirements
-- macOS 12.0 (Monterey) or later
-- Accessibility permissions for global hotkey registration
+### 3. Auto-Tiling Window Manager
 
-## 🚀 Quick Start
+NovaKey monitors window changes and tiles them automatically.
 
-1. **Download from Mac App Store** - Search for "NovaKey" or use the link above
-2. **Grant Permissions** - Allow accessibility access when prompted
-3. **Launch NovaKey** - The app runs in the background with a menu bar icon
-4. **Open Preferences** - Click the menu bar icon and select "NovaKey Preferences"
-5. **Add Your First Hotkey**:
-   - Click the `+` button
-   - Enter a name (e.g., "Launch Safari")
-   - Choose your keyboard shortcut (e.g., `⌃⌥S`)
-   - Select the target application
-   - Click "Add Hotkey"
-6. **Test It Out** - Press your keyboard shortcut to launch the app instantly!
+Behavior highlights:
 
-## ⌨️ Usage Examples
+- Up to 4 windows are tiled cleanly on a display.
+- When more than 4 windows exist on one display, the newest window stays floating on top as overflow.
+- Manual tiling is always available when the user wants to reset the layout.
+- Window cycling lets users rotate the tiled positions without breaking the workspace assignment.
+- Multi-display tiling happens per display, not across the full desktop as one giant canvas.
 
-### Common Hotkey Patterns
+### 4. Single-Display Workspaces
 
-| Shortcut | App | Description |
-|----------|-----|-------------|
-| `⌃⌥C` | Chrome/Safari | Quick web browsing |
-| `⌃⌥T` | Terminal | Instant terminal access |
-| `⌃⌥V` | VS Code | Jump to coding |
-| `⌃⌥S` | Slack/Discord | Communication apps |
-| `⌃⌥M` | Music/Spotify | Media control |
-| `⌃⌥N` | Notes | Quick note-taking |
+When only one display is connected, NovaKey can enable workspace mode.
 
-### Pro Tips
+Workspace behavior:
 
-- **Use consistent patterns**: Group similar apps with similar modifier combinations
-- **Avoid system shortcuts**: Check that your shortcuts don't conflict with macOS defaults
-- **Start simple**: Begin with your most-used apps, then expand
-- **Check statistics**: Use the built-in analytics to optimize your shortcuts
+- 10 keyboard-addressable workspaces (`1` through `0`).
+- Apps are assigned to the current workspace.
+- If a workspace is full, newly opened apps overflow into the next workspace with room.
+- Empty workspaces intentionally show the desktop/home screen instead of glitching between windows.
+- Minimized apps free up a slot in the workspace.
+- Restored apps reopen onto the current workspace, following the same overflow rules if needed.
+- Cycled layouts are preserved when leaving and returning to a workspace.
+- Fullscreen windows are handled as a special case so exiting fullscreen returns the user to the original workspace context cleanly.
 
-## 🔧 Configuration
+### 5. Multi-Display Mode
 
-### Window Management Issues?
+When NovaKey detects more than one connected display, it disables workspaces automatically and switches to multi-display tiling rules.
 
-If apps are resizing existing windows when launched, disable these macOS features:
+Multi-display behavior:
 
-1. **System Settings → Desktop & Dock → Mission Control**
-2. Turn off:
-   - ✅ Stage Manager
-   - ✅ "Automatically rearrange Spaces"
-   - ✅ "Switch to app's Space when activated"
+- Each display is tiled independently.
+- Moving a window from one display to another triggers a retile on both displays.
+- Dragging windows across displays is supported.
+- Caps-based left/right display movement is supported for the focused window.
+- If a second monitor is connected, workspace mode is turned off automatically.
+- If the setup returns to a single display, workspace mode can be restored automatically.
 
-### Launch at Login
+## Product Principles
 
-Enable "Launch at Login" in NovaKey preferences to have your shortcuts ready immediately after boot.
+- Keyboard first: the main workflows should feel faster from keys than from the mouse.
+- Native feeling: the app tries to work with macOS instead of pretending macOS is Linux.
+- Minimal friction: one-handed shortcuts, clear defaults, and visible setup state.
+- Robust state handling: workspace assignment, minimized windows, fullscreen transitions, and monitor changes should not destroy layout state.
 
-### Accessibility Permissions
+## Preferences and User Controls
 
-NovaKey requires accessibility permissions to register global hotkeys:
+NovaKey includes a native Preferences window for:
 
-1. **System Settings → Privacy & Security → Accessibility**
-2. Click the `+` button and add NovaKey
-3. Toggle the switch to enable permissions
-4. Restart NovaKey if needed
+- hotkey management
+- workspace controls
+- setup and permission guidance
+- usage stats
+- import/export of configuration
+- diagnostics and recovery tools
 
-## 📋 Version History
+The app also includes a menu bar interface so core actions are always reachable even when the user forgets a shortcut.
 
-### Latest Release
-- ✨ Smart search and filtering
-- 🎨 Real app icon display
-- 📊 Usage statistics and analytics
-- 🐛 Bug fixes and performance improvements
+## Permissions
 
-*See App Store for complete version history*
+NovaKey uses a few macOS permissions because it performs real window-management work:
 
-## ❓ Frequently Asked Questions
+- Accessibility: required to move, resize, hide, restore, and inspect windows.
+- Screen Recording: used only for temporary transition snapshots that smooth workspace switching. NovaKey does not record, save, or upload screen content.
+- Apple Events: used to focus or open apps when a configured hotkey targets them.
 
-### **Q: Why does NovaKey need accessibility permissions?**
-A: NovaKey needs accessibility permissions to register system-wide keyboard shortcuts. This is a macOS requirement for any app that listens for global hotkeys.
+## Editions
 
-### **Q: Can I use the same shortcut for multiple apps?**
-A: No, each keyboard shortcut must be unique. NovaKey will warn you if you try to create a duplicate shortcut.
+NovaKey is available in two editions so users can pick what fits their setup and comfort level.
 
-### **Q: Does NovaKey work with all apps?**
-A: Yes! NovaKey can launch any application installed on your Mac, including apps from the App Store, third-party apps, and system utilities.
+### NovaKey (Mac App Store)
 
-### **Q: Will my shortcuts work after restarting my Mac?**
-A: Yes, if you enable "Launch at Login" in NovaKey preferences, all your shortcuts will be available immediately after startup.
+- Download: [apps.apple.com/ca/app/novakey](https://apps.apple.com/ca/app/novakey/id6751394828?mt=12)
+- Sandboxed, App-Store-reviewed build.
+- Focused on the hotkey launcher and Caps Lock leader system.
+- Best for users who want a lightweight, App-Store-safe install with no permission setup beyond standard macOS prompts.
 
-### **Q: Can I backup my hotkey configurations?**
-A: Your hotkey configurations are automatically saved and will persist across app updates. For manual backup, you can export your settings (feature coming in future update).
+### NovaKey Pro (Direct Download)
 
-## 🏗 Technical Details
+- Buy: [gunwithish.gumroad.com/l/novakeypro](https://gunwithish.gumroad.com/l/novakeypro) — $9.99, one-time.
+- Signed and notarized DMG.
+- Full experience: auto-tiling window manager, ten virtual workspaces, multi-display mode, manual retile and cycle, import/export, diagnostics.
+- Requires macOS 13 Ventura or later. Apple Silicon + Intel supported.
+- Unlocks features that cannot ship through the sandboxed App Store build because they rely on deeper window-management APIs.
 
-### Technologies Used
-- **SwiftUI**: Modern declarative UI framework
-- **Carbon Framework**: Low-level hotkey registration
-- **AppKit**: macOS-specific functionality
-- **NSWorkspace**: Application launching and management
+This repository currently contains the full feature set that powers both editions.
 
-### Privacy & Security
-- All data is stored locally on your Mac
-- No network connections or data collection
-- No encryption algorithms implemented
-- Uses standard macOS data protection
-- [Privacy Policy](https://gundogcodes.github.io/hyperkey-privacy-policy/)
+## Tech Stack
 
-## 💬 Support & Feedback
+- Swift
+- SwiftUI
+- AppKit
+- macOS Accessibility APIs
+- ScreenCaptureKit
+- Carbon hotkeys where appropriate
 
-### 📧 Contact
-- **App Store Reviews**: Leave feedback directly on the Mac App Store
-- **Support Email**: gunishsharma20@gmail.com
-- **Feature Requests**: Contact via email with your suggestions
+## Development
 
-### 🐛 Reporting Issues
-When reporting issues, please include:
-- macOS version
-- NovaKey version (from App Store)
-- Steps to reproduce the issue
-- Screenshots if applicable
+Open the project in Xcode:
 
-## 🔄 Updates
+```sh
+open HyperKey.xcodeproj
+```
 
-NovaKey is actively maintained with regular updates including:
-- New features based on user feedback
-- Performance improvements
-- macOS compatibility updates
-- Bug fixes and stability enhancements
+Or build from the command line:
 
-Updates are delivered automatically through the Mac App Store.
+```sh
+xcodebuild -project HyperKey.xcodeproj -scheme HyperKey build
+```
 
-⭐⭐⭐⭐⭐ **Leave a review on the Mac App Store to support development!**
+## Direct Distribution
 
----
-## Privacy Policy
+For direct-download packaging, a DMG build script is included:
 
-https://gundogcodes.github.io/novakey-privacy-policy/
+```sh
+Scripts/build_dmg.sh
+```
 
-<div align="center">
-  <p><strong>🚀 <a href="https://apps.apple.com/ca/app/hyperkey/id6751394828?mt=12">Download NovaKey from the Mac App Store</a></strong></p>
-  <p>Made with ❤️ for the macOS community</p>
-</div>
+For local unsigned smoke testing:
+
+```sh
+Scripts/build_dmg.sh --unsigned
+```
+
+See [Docs/DirectDistribution.md](Docs/DirectDistribution.md) for the full packaging and notarization flow.
