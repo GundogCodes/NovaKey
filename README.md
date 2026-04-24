@@ -15,6 +15,17 @@ Landing page: https://gundogcodes.github.io/NovaKey/
 
 This repository tracks the full feature set that powers both editions.
 
+## Why NovaKey Pro (vs. yabai, Amethyst, AeroSpace, HyprMac)
+
+The open-source macOS tilers are excellent tools — for users who enjoy editing config files. NovaKey Pro is for everyone else.
+
+- **All in one app.** Hotkey launcher, auto-tiling, ten virtual workspaces, and cross-Mac sync in a single coherent app. No stitching together three or four tools.
+- **Zero config to start.** Sensible defaults, a real Preferences window, and no `brew services` or YAML. Grant Accessibility once and you're tiling.
+- **Native feel.** Fullscreen, Mission Control, minimize, and multi-display behavior are all respected. NovaKey works with macOS instead of pretending it's Linux.
+- **Signed, notarized, supported.** Apple-notarized DMG, one-time $9.99, and a human to email when something breaks.
+
+If you want a Linux-style WM on your Mac and enjoy tuning dotfiles, yabai or AeroSpace are the right fit. If you want the power-user layer without the homework, that's NovaKey Pro.
+
 ## What NovaKey Does
 
 - Launch apps and websites from custom hotkeys.
