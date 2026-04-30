@@ -111,14 +111,15 @@ nav.scrolled {
 }
 .hero-bg {
   position: absolute; inset: 0;
-  background-image: url('assets/bg-wave.png');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.55;
+  width: 100%; height: 100%;
+  display: block;
+  opacity: 0.95;
+  cursor: crosshair;
 }
 .hero-vignette {
   position: absolute; inset: 0;
   background: radial-gradient(ellipse at 50% 40%, rgba(3,5,10,0.1) 0%, rgba(3,5,10,0.85) 75%);
+  pointer-events: none;
 }
 .hero-glow {
   position: absolute;
@@ -712,7 +713,7 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <canvas class="hero-bg" id="aurora-canvas"></canvas>
   <div class="hero-vignette"></div>
   <div class="hero-glow"></div>
   <div class="hero-content">
@@ -1225,6 +1226,251 @@ document.querySelectorAll('.ws-tile').forEach(tile => {
     tile.classList.add('active');
   });
 });
+
+/* ── AURORA FIELD SHADER (interactive hero background) ── */
+(() => {
+  const canvas = document.getElementById('aurora-canvas');
+  if (!canvas) return;
+  const gl = canvas.getContext('webgl', { antialias: true, premultipliedAlpha: false })
+          || canvas.getContext('experimental-webgl');
+  if (!gl) { canvas.style.display = 'none'; return; }
+
+  const vertSrc = `
+    attribute vec2 a_pos;
+    void main() { gl_Position = vec4(a_pos, 0.0, 1.0); }
+  `;
+
+  const fragSrc = `
+    precision highp float;
+    uniform vec2  u_res;
+    uniform vec2  u_mouse;        // 0..1 in canvas space
+    uniform float u_time;
+    uniform vec4  u_click[6];     // xy = pos (0..1), z = startTime, w = strength
+    uniform float u_pressure;     // 0..1 mouse-down hold
+
+    // hash + value noise
+    float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123); }
+    float noise(vec2 p){
+      vec2 i = floor(p), f = fract(p);
+      vec2 u = f*f*(3.0-2.0*f);
+      return mix(mix(hash(i), hash(i+vec2(1,0)), u.x),
+                 mix(hash(i+vec2(0,1)), hash(i+vec2(1,1)), u.x), u.y);
+    }
+    float fbm(vec2 p){
+      float v = 0.0, a = 0.5;
+      mat2 r = mat2(0.8, -0.6, 0.6, 0.8);
+      for (int i = 0; i < 6; i++) {
+        v += a * noise(p);
+        p = r * p * 2.02;
+        a *= 0.5;
+      }
+      return v;
+    }
+
+    void main(){
+      vec2 uv = gl_FragCoord.xy / u_res.xy;
+      // aspect-correct working space
+      float aspect = u_res.x / u_res.y;
+      vec2 p = vec2(uv.x * aspect, uv.y);
+      vec2 m = vec2(u_mouse.x * aspect, u_mouse.y);
+
+      float t = u_time * 0.07;
+
+      // mouse pulls the aurora field (gentle warp)
+      vec2 toMouse = m - p;
+      float md = length(toMouse);
+      vec2 warp = toMouse * (0.18 + 0.25 * u_pressure) * exp(-md * 1.6);
+
+      // build flowing aurora bands (vertical, drifting up-left)
+      vec2 q = (p + warp) * vec2(1.4, 2.2);
+      q.y -= t * 1.2;
+      q.x += t * 0.3;
+
+      // domain warp for that organic ribbon flow
+      vec2 w1 = vec2(fbm(q + vec2(0.0, t)), fbm(q + vec2(5.2, -t*0.7)));
+      vec2 w2 = vec2(fbm(q + 2.5 * w1 + vec2(1.7, 9.2)),
+                     fbm(q + 2.5 * w1 + vec2(8.3, 2.8)));
+      float n = fbm(q + 3.5 * w2);
+
+      // band shape — concentrate aurora towards the upper half
+      float vert = smoothstep(-0.05, 0.95, 1.0 - uv.y);
+      float ribbons = pow(n, 1.4) * vert;
+
+      // sharper band edges
+      float bands = smoothstep(0.35, 0.95, ribbons);
+      float core  = smoothstep(0.55, 0.98, ribbons);
+
+      // NovaKey palette
+      vec3 black     = vec3(0.012, 0.018, 0.035);
+      vec3 deep      = vec3(0.04,  0.08,  0.22);
+      vec3 blue      = vec3(0.145, 0.396, 1.0);   // #2563FF
+      vec3 brightBlue= vec3(0.231, 0.510, 0.965); // #3B82F6
+      vec3 ice       = vec3(0.55,  0.78,  1.0);
+
+      vec3 col = black;
+      // base nebula glow
+      col = mix(col, deep, ribbons * 0.9);
+      // mid-band
+      col = mix(col, blue, bands);
+      // bright core
+      col += brightBlue * core * 0.85;
+      // hottest filaments
+      col += ice * pow(core, 3.5) * 1.2;
+
+      // soft horizon glow on the bottom (ground-side)
+      float horizon = smoothstep(0.0, 0.45, uv.y);
+      col += vec3(0.05, 0.12, 0.30) * (1.0 - horizon) * 0.35;
+
+      // mouse spotlight (subtle blue halo following cursor)
+      float halo = exp(-md * 4.0);
+      col += vec3(0.18, 0.42, 0.95) * halo * (0.18 + 0.4 * u_pressure);
+
+      // click ripples
+      for (int i = 0; i < 6; i++) {
+        vec4 c = u_click[i];
+        float age = u_time - c.z;
+        if (c.w > 0.0 && age > 0.0 && age < 2.4) {
+          vec2 cp = vec2(c.x * aspect, c.y);
+          float r = age * 0.55;
+          float d = abs(distance(p, cp) - r);
+          float ring = exp(-pow(d * 8.0, 2.0));
+          float fade = 1.0 - (age / 2.4);
+          col += vec3(0.25, 0.55, 1.0) * ring * fade * c.w * 1.4;
+          // inner soft pulse
+          col += vec3(0.10, 0.25, 0.7) * exp(-distance(p, cp) * 6.0) * fade * c.w * 0.25;
+        }
+      }
+
+      // subtle starfield (high-frequency sparkle in upper half)
+      float stars = pow(hash(floor(uv * vec2(900.0, 600.0))), 60.0);
+      col += vec3(0.6, 0.8, 1.0) * stars * vert * 0.6;
+
+      // grain to keep gradients honest on dark areas
+      float g = (hash(uv * u_time * 0.5 + 1.0) - 0.5) * 0.018;
+      col += g;
+
+      // gentle vignette so it sits well behind hero copy
+      float vig = smoothstep(1.1, 0.35, length((uv - 0.5) * vec2(aspect, 1.0)));
+      col *= mix(0.55, 1.0, vig);
+
+      gl_FragColor = vec4(col, 1.0);
+    }
+  `;
+
+  function compile(type, src){
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src); gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+      console.warn('shader error', gl.getShaderInfoLog(s)); gl.deleteShader(s); return null;
+    }
+    return s;
+  }
+  const vs = compile(gl.VERTEX_SHADER, vertSrc);
+  const fs = compile(gl.FRAGMENT_SHADER, fragSrc);
+  if (!vs || !fs) { canvas.style.display = 'none'; return; }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, vs); gl.attachShader(prog, fs); gl.linkProgram(prog);
+  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+    console.warn('link error', gl.getProgramInfoLog(prog));
+    canvas.style.display = 'none'; return;
+  }
+  gl.useProgram(prog);
+
+  // full-screen quad
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+    -1,-1,  1,-1, -1, 1,
+    -1, 1,  1,-1,  1, 1
+  ]), gl.STATIC_DRAW);
+  const aPos = gl.getAttribLocation(prog, 'a_pos');
+  gl.enableVertexAttribArray(aPos);
+  gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+  const uRes      = gl.getUniformLocation(prog, 'u_res');
+  const uMouse    = gl.getUniformLocation(prog, 'u_mouse');
+  const uTime     = gl.getUniformLocation(prog, 'u_time');
+  const uClick    = gl.getUniformLocation(prog, 'u_click');
+  const uPressure = gl.getUniformLocation(prog, 'u_pressure');
+
+  // mouse state (smoothed)
+  let mouseTarget = [0.5, 0.6];
+  let mouse       = [0.5, 0.6];
+  let pressureT   = 0;
+  let pressure    = 0;
+  const clicks    = Array.from({length: 6}, () => [0,0,0,0]); // x,y,startTime,strength
+  let clickIdx    = 0;
+
+  function size(){
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const w = canvas.clientWidth || canvas.parentElement.clientWidth;
+    const h = canvas.clientHeight || canvas.parentElement.clientHeight;
+    canvas.width  = Math.max(1, Math.floor(w * dpr));
+    canvas.height = Math.max(1, Math.floor(h * dpr));
+    gl.viewport(0, 0, canvas.width, canvas.height);
+  }
+  size();
+  window.addEventListener('resize', size);
+
+  function relMouse(e){
+    const r = canvas.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width;
+    const y = 1.0 - (e.clientY - r.top) / r.height; // GL Y is up
+    return [Math.max(0, Math.min(1, x)), Math.max(0, Math.min(1, y))];
+  }
+
+  // listen on the hero so the cursor doesn't have to be on the canvas pixels exactly
+  const hero = canvas.parentElement;
+  hero.addEventListener('mousemove', e => { mouseTarget = relMouse(e); });
+  hero.addEventListener('mouseleave', () => { mouseTarget = [0.5, 0.6]; });
+  hero.addEventListener('mousedown',  () => { pressureT = 1; });
+  window.addEventListener('mouseup',  () => { pressureT = 0; });
+
+  function fireClick(e){
+    const [x, y] = relMouse(e);
+    clicks[clickIdx] = [x, y, performance.now() / 1000, 1.0];
+    clickIdx = (clickIdx + 1) % clicks.length;
+  }
+  hero.addEventListener('click', fireClick);
+
+  // touch — light support, doesn't need to be perfect
+  hero.addEventListener('touchmove', e => {
+    if (e.touches[0]) mouseTarget = relMouse(e.touches[0]);
+  }, { passive: true });
+  hero.addEventListener('touchstart', e => {
+    if (e.touches[0]) { mouseTarget = relMouse(e.touches[0]); fireClick(e.touches[0]); pressureT = 1; }
+  }, { passive: true });
+  hero.addEventListener('touchend', () => { pressureT = 0; });
+
+  const t0 = performance.now();
+  function frame(){
+    // smooth mouse + pressure
+    mouse[0] += (mouseTarget[0] - mouse[0]) * 0.08;
+    mouse[1] += (mouseTarget[1] - mouse[1]) * 0.08;
+    pressure += (pressureT - pressure) * 0.12;
+
+    const t = (performance.now() - t0) / 1000;
+
+    // pack clicks into a flat array for uniform4fv
+    const flat = new Float32Array(24);
+    for (let i = 0; i < 6; i++) {
+      flat[i*4+0] = clicks[i][0];
+      flat[i*4+1] = clicks[i][1];
+      flat[i*4+2] = clicks[i][2];
+      flat[i*4+3] = clicks[i][3];
+    }
+
+    gl.uniform2f(uRes, canvas.width, canvas.height);
+    gl.uniform2f(uMouse, mouse[0], mouse[1]);
+    gl.uniform1f(uTime, t);
+    gl.uniform4fv(uClick, flat);
+    gl.uniform1f(uPressure, pressure);
+
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
 </script>
 </body>
 </html>
